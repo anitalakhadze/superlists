@@ -10,7 +10,10 @@ MAX_WAIT = 10
 class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
-        self.browser = webdriver.Firefox()
+        options = webdriver.firefox.options.Options()
+        options.headless = True
+        self.browser = webdriver.Firefox(options=options)
+
 
     def tearDown(self):
         self.browser.quit()
@@ -89,7 +92,9 @@ class NewVisitorTest(LiveServerTestCase):
         ## We use a new browser session to make sure that no 
         ## information of Edith's is coming through from cookies etc
         self.browser.quit()
-        self.browser = webdriver.Firefox()
+        options = webdriver.firefox.options.Options()
+        options.headless = True
+        self.browser = webdriver.Firefox(options=options)
 
         # Francis visits the home page. There is no sign of Edith's list
         self.browser.get(self.live_server_url)
