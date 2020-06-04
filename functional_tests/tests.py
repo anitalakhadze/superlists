@@ -1,4 +1,4 @@
-from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import WebDriverException
@@ -7,7 +7,7 @@ import time
 
 MAX_WAIT = 10
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
 
     def setUp(self):
         options = webdriver.firefox.options.Options()
@@ -137,8 +137,8 @@ class NewVisitorTest(LiveServerTestCase):
         # She starts a new list and sees the input is nicely
         # centered there too
         inputbox.send_keys('testing')
-        inputbox.sen_keys(Keys.ENTER)
-        self.wait_for_row_in_list_table('1. testing')
+        inputbox.send_keys(Keys.ENTER)
+        self.wait_for_row_in_list_table('1: testing')
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertAlmostEqual(
             inputbox.location['x'] + inputbox.size['width'] / 2,
