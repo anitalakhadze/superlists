@@ -25,7 +25,7 @@ SECRET_KEY = 'iqb=4&ef2$(wa9o^9ii#$)2mjtpob5linc7r#523gipgkxdw41'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['staging.atalakhadze.xyz']
 
 
 # Application definition
