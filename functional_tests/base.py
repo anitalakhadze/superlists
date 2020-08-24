@@ -11,7 +11,7 @@ class FunctionalTest(StaticLiveServerTestCase):
     def setUp(self):
         options = webdriver.firefox.options.Options()
         options.headless = True
-        self.browser = webdriver.Firefox(options=options)
+        self.browser = webdriver.Firefox(firefox_options=options)
         staging_server = os.environ.get('STAGING_SERVER')
         if staging_server:
             self.live_server_url = 'http://' + staging_server
